@@ -57,6 +57,13 @@ class MenuItemViewHolder(private val view: ListMenuItemView) : RecyclerView.View
     view.initialize(model.item as MenuItemImpl, 0)
     view.setGroupDividerEnabled(model.isDifferentGroupThanPrev)
 
+    titleView.isSelected = true
+    titleView.ellipsize = TextUtils.TruncateAt.MARQUEE
+    titleView.marqueeRepeatLimit = -1
+    titleView.isSingleLine = true
+    titleView.isFocusable = true
+    titleView.isFocusableInTouchMode = true
+    
     if (model.item.hasSubMenu()) {
       subMenuArrowView.setImageResource(R.drawable.cascade_ic_round_arrow_right_24)
     }
